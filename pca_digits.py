@@ -4,6 +4,7 @@
 from sklearn.datasets import load_digits
 from sklearn.decomposition import PCA
 from matplotlib import pyplot as plt
+import numpy as np
 
 # Load the data from sklearn datasets
 digits = load_digits()
@@ -21,7 +22,7 @@ plt.ylabel('PC2')
 plt.colorbar()
 plt.show()
 
-# On the image above, we can see that in 2 PCs, we (more or less) already can grouped each digits in a certain region
+# On the image above, we can see that in 2 PCs we can identify a region for each digits (while still overlapped)
 
 # Why we have to create PC instead of using the original value?
 # In digit recognition, using n-th pixel of the canvas won't retrieve much information, while in PCA it will give more information (becasue each PC is combined features)
@@ -29,7 +30,7 @@ plt.show()
 # Choosing the number of components
 # This cam be determined by looking at the cumulative explained variance ratio as a function of the number of components
 pca = PCA().fit(digits.data)
-plt.plot(np.cumsum(pca.explained_variance_ration_))
+plt.plot(np.cumsum(pca.explained_variance_ratio_))
 plt.xlabel("Number of components")
 plt.ylabel("Cumulative explained variance")
 plt.show()
