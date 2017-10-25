@@ -12,8 +12,8 @@ _RANDOM_STATE = 42
 
 # First we will generate random point on X-Y axes
 rng = np.random.RandomState(_RANDOM_STATE)
-X = np.dot(rng.rand(2,2), rng.random(2,200)).T
-plt.scatter(X[:,0], X[X,1])
+X = np.dot(rng.rand(2,2), rng.randn(2,200)).T
+plt.scatter(X[:,0], X[:,1])
 plt.axis('equal')
 plt.show()
 
